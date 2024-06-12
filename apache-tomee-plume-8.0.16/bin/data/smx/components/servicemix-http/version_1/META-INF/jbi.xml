@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <component type="binding-component" component-class-loader-delegation="parent-first" bootstrap-class-loader-delegation="parent-first">
+    <identification>
+      <name>servicemix-http</name>
+      <description>ServiceMix :: HTTP</description>
+    </identification>
+    <component-class-name>org.apache.servicemix.http.HttpComponent</component-class-name>
+    <component-class-path>
+      <path-element>lib/servicemix-http-2009.01.jar</path-element>
+      <path-element>lib/jetty-client-6.1.14.jar</path-element>
+      <path-element>lib/jetty-management-6.1.14.jar</path-element>
+      <path-element>lib/jetty-6.1.14.jar</path-element>
+      <path-element>lib/jetty-util-6.1.14.jar</path-element>
+      <path-element>lib/commons-codec-1.2.jar</path-element>
+      <path-element>lib/jetty-sslengine-6.1.14.jar</path-element>
+      <path-element>lib/geronimo-servlet_2.5_spec-1.1.2.jar</path-element>
+      <path-element>lib/commons-httpclient-3.0.jar</path-element>
+    </component-class-path>
+    <bootstrap-class-name>org.apache.servicemix.http.HttpBootstrap</bootstrap-class-name>
+    <bootstrap-class-path>
+      <path-element>lib/servicemix-http-2009.01.jar</path-element>
+      <path-element>lib/jetty-client-6.1.14.jar</path-element>
+      <path-element>lib/jetty-management-6.1.14.jar</path-element>
+      <path-element>lib/jetty-6.1.14.jar</path-element>
+      <path-element>lib/jetty-util-6.1.14.jar</path-element>
+      <path-element>lib/commons-codec-1.2.jar</path-element>
+      <path-element>lib/jetty-sslengine-6.1.14.jar</path-element>
+      <path-element>lib/geronimo-servlet_2.5_spec-1.1.2.jar</path-element>
+      <path-element>lib/commons-httpclient-3.0.jar</path-element>
+    </bootstrap-class-path>
+    <shared-library version="2009.01">servicemix-shared</shared-library>
+  </component>
+</jbi>

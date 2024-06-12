@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: fundamodev
+Build-Jdk: 1.6.0_45
+Extension-Name: fundamo-platform-http-connector-su
+Implementation-Title: fundamo-platform-http-connector-su
+Implementation-Version: 5.9.0
+

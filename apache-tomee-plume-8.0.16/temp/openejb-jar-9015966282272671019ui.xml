@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<openejb-jar xmlns="http://www.openejb.org/openejb-jar/1.1">
+    <properties></properties>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="TranslationManager" ejb-name="TranslationManager"/>
+    <ejb-deployment container-id="Default Managed Container" deployment-id="ui.Comp1711756103" ejb-name="ui.Comp"/>
+</openejb-jar>

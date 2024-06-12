@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <service-assembly>
+    <identification>
+      <name>fundamo-platform-http-sa</name>
+      <description>Fundamo Enterprise - HTTP Service Assembly</description>
+    </identification>
+    <service-unit>
+      <identification>
+        <name>fundamo-platform-http-connector-su</name>
+        <description>fundamo-platform-http-connector-su</description>
+      </identification>
+      <target>
+        <artifacts-zip>fundamo-platform-http-connector-su-5.9.0.zip</artifacts-zip>
+        <component-name>servicemix-http</component-name>
+      </target>
+    </service-unit>
+    <service-unit>
+      <identification>
+        <name>fundamo-platform-http-client-su</name>
+        <description>fundamo-platform-http-client-su</description>
+      </identification>
+      <target>
+        <artifacts-zip>fundamo-platform-http-client-su-5.9.0.zip</artifacts-zip>
+        <component-name>servicemix-bean</component-name>
+      </target>
+    </service-unit>
+  </service-assembly>
+</jbi>

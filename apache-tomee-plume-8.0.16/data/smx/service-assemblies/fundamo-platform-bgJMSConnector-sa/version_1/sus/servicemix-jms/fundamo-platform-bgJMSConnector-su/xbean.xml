@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:jms="http://servicemix.apache.org/jms/1.0" xmlns:fun="http://www.fundamo.com/platform"
+	xmlns:jee="http://www.springframework.org/schema/jee">
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>file:/opt/fundamo/config/fundamo_platform.properties</value>
+		</property>
+	</bean>
+	<jms:provider service="fun:BrandGroupRequestQueue"
+		endpoint="${jmsProvider.endpoint.name}" destinationName="${jmsProvider.destination.name}"
+		connectionFactory="#fundamoRequestConnectionFactory" marshaler="#fundamoProviderMarshaler" />
+
+	<jms:consumer service="fun:BrandGroupJMSConsumer"
+		endpoint="${jmsConsumer.endpoint.name}" targetService="fun:FundamoRoutingService"
+		destinationName="${jmsConsumer.destination.name}"
+		connectionFactory="#fundamoResponseConnectionFactory" 
+		concurrentConsumers="64"
+		cacheLevel="3"
+		synchronous="false"
+		marshaler="#fundamoConsumerMarshaler" />
+
+	<bean id="fundamoProviderMarshaler" class="com.fundamo.jms.connector.FundamoJMSProviderMarshaler" />
+	
+	<bean id="fundamoConsumerMarshaler" class="com.fundamo.jms.connector.FundamoJMSConsumerMarshaler" />
+	<!-- 
+	<bean id="fundamoConnectionFactory"  singleton="false" class="com.fundamo.jms.connector.FundamoQueueConnectionFactory">
+		<constructor-arg type="java.lang.String">
+			<value>${jms.brokerhostaddress}</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>${jms.brokerhostport}</value>
+		</constructor-arg>
+	</bean>
+	 -->
+	<jee:jndi-lookup id="fundamoResponseConnectionFactory" jndi-name="${jms.connectionFactory.jndi.response.name}">
+		<jee:environment>
+			java.naming.factory.initial=${java.naming.factory.initial}
+			org.omg.CORBA.ORBInitialHost=${jms.brokerhostaddress}
+			org.omg.CORBA.ORBInitialPort=${jms.brokerhostport}
+			java.naming.provider.url=${java.naming.provider.url}
+		</jee:environment>
+	</jee:jndi-lookup>	
+ 
+	<jee:jndi-lookup id="fundamoRequestConnectionFactory" jndi-name="${jms.connectionFactory.jndi.request.name}">
+		<jee:environment>
+			java.naming.factory.initial=${java.naming.factory.initial}
+			org.omg.CORBA.ORBInitialHost=${jms.brokerhostaddress}
+			org.omg.CORBA.ORBInitialPort=${jms.brokerhostport}
+			java.naming.provider.url=${java.naming.provider.url}
+		</jee:environment>
+	</jee:jndi-lookup>
+</beans>

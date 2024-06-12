@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>fundamo-platform</artifactId>
+    <groupId>com.fundamo.platform</groupId>
+    <version>5.9.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fundamo.platform</groupId>
+  <artifactId>${bgJMSConnectorName}-sa</artifactId>
+  <packaging>jbi-service-assembly</packaging>
+  <name>Fundamo Enterprise - JMS Connector Service Assembly</name>
+  <version>5.9.0</version>
+  <url>http://www.fundamo.org</url>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.servicemix.tooling</groupId>
+        <artifactId>jbi-maven-plugin</artifactId>
+        <version>4.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <type>service-assembly</type>
+          <deployDependencies>false</deployDependencies>
+          <forceUpdate>true</forceUpdate>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build> 
+  <dependencies>
+    <dependency>
+      <groupId>com.fundamo.platform</groupId>
+      <artifactId>${bgJMSConnectorName}-su</artifactId>
+      <version>${fundamoVersion}</version>
+    </dependency>	
+  </dependencies> 
+</project>

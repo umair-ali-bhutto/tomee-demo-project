@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <service-assembly>
+    <identification>
+      <name>fundamo-platform-camel-sa</name>
+      <description>Fundamo Enterprise - Camel Service Assembly</description>
+    </identification>
+    <service-unit>
+      <identification>
+        <name>fundamo-platform-camel-su</name>
+        <description>fundamo-platform-camel-su</description>
+      </identification>
+      <target>
+        <artifacts-zip>fundamo-platform-camel-su-5.9.0.zip</artifacts-zip>
+        <component-name>servicemix-camel</component-name>
+      </target>
+    </service-unit>
+  </service-assembly>
+</jbi>

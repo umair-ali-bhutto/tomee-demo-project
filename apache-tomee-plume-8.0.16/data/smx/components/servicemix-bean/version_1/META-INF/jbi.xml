@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <component type="service-engine" component-class-loader-delegation="parent-first" bootstrap-class-loader-delegation="parent-first">
+    <identification>
+      <name>servicemix-bean</name>
+      <description>ServiceMix :: Bean</description>
+    </identification>
+    <component-class-name>org.apache.servicemix.bean.BeanComponent</component-class-name>
+    <component-class-path>
+      <path-element>lib/servicemix-bean-2010.01.jar</path-element>
+      <path-element>lib/geronimo-annotation_1.0_spec-1.1.1.jar</path-element>
+      <path-element>lib/commons-jexl-1.1.jar</path-element>
+      <path-element>lib/servicemix-shared-2010.01.jar</path-element>
+    </component-class-path>
+    <bootstrap-class-name>org.apache.servicemix.common.DefaultBootstrap</bootstrap-class-name>
+    <bootstrap-class-path>
+      <path-element>lib/servicemix-bean-2010.01.jar</path-element>
+      <path-element>lib/geronimo-annotation_1.0_spec-1.1.1.jar</path-element>
+      <path-element>lib/commons-jexl-1.1.jar</path-element>
+    </bootstrap-class-path>
+    <shared-library version="2010.01">servicemix-shared</shared-library>
+  </component>
+</jbi>

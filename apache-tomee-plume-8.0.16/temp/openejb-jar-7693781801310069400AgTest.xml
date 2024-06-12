@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<openejb-jar xmlns="http://www.openejb.org/openejb-jar/1.1">
+    <properties></properties>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="FetchService" ejb-name="FetchService">
+        <resource-link res-id="Default JMS Connection Factory" res-ref-name="java:comp/env/agTest/jms/TestFactory"/>
+        <resource-link res-id="agTest/jms/TestQueue" res-ref-name="java:comp/env/com.ag.interceptor.InterceptorTest/queue"/>
+    </ejb-deployment>
+    <ejb-deployment container-id="Default Managed Container" deployment-id="AgTest.Comp760604710" ejb-name="AgTest.Comp">
+        <resource-link res-id="Default JMS Connection Factory" res-ref-name="java:comp/env/agTest/jms/TestFactory"/>
+        <resource-link res-id="agTest/jms/TestQueue" res-ref-name="java:comp/env/com.ag.interceptor.InterceptorTest/queue"/>
+    </ejb-deployment>
+</openejb-jar>

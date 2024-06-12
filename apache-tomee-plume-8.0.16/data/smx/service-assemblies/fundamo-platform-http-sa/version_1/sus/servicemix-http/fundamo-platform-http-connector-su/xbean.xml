@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:http="http://servicemix.apache.org/http/1.0"
+	xmlns:fun="http://www.fundamo.com/platform">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>file:/opt/fundamo/config/fundamo_platform.properties</value>
+		</property>
+	</bean>
+
+
+	<http:consumer service="fun:FundamoHTTPConsumer"
+		endpoint="${httpConsumer.endpoint.name}" targetService="fun:FundamoRoutingService"
+		locationURI="${httpConsumer.locationURI}" marshaler="#FundamoHTTPConsumerMarshaler" />
+
+	<bean id="FundamoHTTPConsumerMarshaler" class="com.fundamo.http.connector.FundamoHTTPConsumerMarshaler" />
+
+</beans>

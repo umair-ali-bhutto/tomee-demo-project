@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <component type="binding-component" component-class-loader-delegation="parent-first" bootstrap-class-loader-delegation="parent-first">
+    <identification>
+      <name>servicemix-jms</name>
+      <description>ServiceMix :: JMS</description>
+    </identification>
+    <component-class-name>org.apache.servicemix.jms.JmsComponent</component-class-name>
+    <component-class-path>
+      <path-element>lib/servicemix-jms-2010.01.jar</path-element>
+      <path-element>lib/spring-tx-2.5.6.jar</path-element>
+      <path-element>lib/spring-jms-2.5.6.jar</path-element>
+      <path-element>lib/servicemix-shared-2010.01.jar</path-element>
+    </component-class-path>
+    <bootstrap-class-name>org.apache.servicemix.jms.JmsBootstrap</bootstrap-class-name>
+    <bootstrap-class-path>
+      <path-element>lib/servicemix-jms-2010.01.jar</path-element>
+      <path-element>lib/spring-tx-2.5.6.jar</path-element>
+      <path-element>lib/spring-jms-2.5.6.jar</path-element>
+    </bootstrap-class-path>
+    <shared-library version="2010.01">servicemix-shared</shared-library>
+  </component>
+</jbi>

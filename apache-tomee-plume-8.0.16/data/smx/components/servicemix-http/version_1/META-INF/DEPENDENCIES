@@ -1,0 +1,67 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+Apache ServiceMix
+
+
+From: 'an unknown organization'
+  - Legion of the Bouncy Castle Java Cryptography APIs (http://www.bouncycastle.org/java.html) bouncycastle:bcprov-jdk15:jar:140
+    License: Bouncy Castle License  (http://www.bouncycastle.org/licence.html)
+  - Unnamed - org.apache.ws.security:wss4j:pom:1.5.2  org.apache.ws.security:wss4j:pom:1.5.2
+
+
+From: 'Apache Software Foundation' (http://jakarta.apache.org/)
+  - HttpClient (http://jakarta.apache.org/commons/httpclient/) commons-httpclient:commons-httpclient:jar:3.0
+    License: Apache License  (http://www.apache.org/licenses/LICENSE-2.0)
+
+From: 'Apache Software Foundation' (http://www.apache.org/)
+  - Woden (http://incubator.apache.org/woden/) org.apache.woden:woden:jar:1.0.0M6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - XmlSchema (http://ws.apache.org/commons/XmlSchema) org.apache.ws.commons.schema:XmlSchema:jar:1.4.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Internet2' (http://www.internet2.edu/)
+  - OpenSAML-J (https://opensaml.org/) org.opensaml:opensaml:jar:1.1
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Mort Bay Consulting' (http://www.mortbay.com)
+  - Jetty Server (http://jetty.mortbay.org/) org.mortbay.jetty:jetty:jar:6.1.14:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Jetty HTTP Client (http://jetty.mortbay.org/project/jetty-client) org.mortbay.jetty:jetty-client:jar:6.1.14
+    License: Apache License Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+  - Jetty Management (http://jetty.mortbay.org/project/jetty-management) org.mortbay.jetty:jetty-management:jar:6.1.14
+    License: Apache License Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
+  - Jetty SSLEngine (http://jetty.mortbay.org) org.mortbay.jetty:jetty-sslengine:jar:6.1.14
+    License: Apache License Version 2  (http://www.apache.org/licenses/LICENSE-2.0)
+  - Jetty Utilities (http://jetty.mortbay.org/) org.mortbay.jetty:jetty-util:jar:6.1.14:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - Apache Commons Codec  commons-codec:commons-codec:jar:1.2:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Geronimo Specs :: Servlet 2.5 (http://geronimo.apache.org/specs/geronimo-servlet_2.5_spec/geronimo-servlet_2.5_spec) org.apache.geronimo.specs:geronimo-servlet_2.5_spec:jar:1.1.2:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: Common (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-common) org.apache.servicemix:servicemix-common:jar:2009.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: Shared (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-shared) org.apache.servicemix:servicemix-shared:jbi-shared-library:2009.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: SOAP (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-soap) org.apache.servicemix:servicemix-soap:jar:2009.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: SOAP2 (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-soap2) org.apache.servicemix:servicemix-soap2:jar:2009.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - XBean :: Classloader (http://geronimo.apache.org/xbean/xbean-classloader/xbean-classloader) org.apache.xbean:xbean-classloader:jar:3.4.3:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - XBean :: Spring (http://geronimo.apache.org/xbean/xbean-spring/xbean-spring) org.apache.xbean:xbean-spring:jar:3.4.3:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - XML Security (http://santuario.apache.org/xmlsec) xml-security:xmlsec:jar:1.3.0:compile
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Legion of the Bouncy Castle' (http://www.bouncycastle.org)
+  - Bouncy Castle Crypto APIs for Java (http://www.bouncycastle.org/java.html/bcprov-jdk14) bouncycastle:bcprov-jdk14:jar:140:compile
+    License: Bouncy Castle License  (http://www.bouncycastle.org/licence.html)
+
+
+
+

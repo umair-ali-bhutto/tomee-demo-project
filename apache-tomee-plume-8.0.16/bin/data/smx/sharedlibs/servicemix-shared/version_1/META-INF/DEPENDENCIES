@@ -1,0 +1,67 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+ServiceMix :: Shared
+
+
+From: 'an unknown organization'
+  - AOP alliance (http://aopalliance.sourceforge.net) aopalliance:aopalliance:jar:1.0
+    License: Public Domain 
+  - Legion of the Bouncy Castle Java Cryptography APIs (http://www.bouncycastle.org/java.html) bouncycastle:bcprov-jdk15:jar:140
+    License: Bouncy Castle License  (http://www.bouncycastle.org/licence.html)
+  - Unnamed - org.opensaml:opensaml:jar:1.1  org.opensaml:opensaml:jar:1.1
+
+  - WSDL4J (http://sf.net/projects/wsdl4j) wsdl4j:wsdl4j:jar:1.6.2
+    License: CPL  (http://www.opensource.org/licenses/cpl1.0.txt)
+
+From: 'Apache Software Foundation' (http://www.apache.org)
+  - Activation 1.1 (http://geronimo.apache.org/specs/geronimo-activation_1.1_spec) org.apache.geronimo.specs:geronimo-activation_1.1_spec:jar:1.0.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Streaming API for XML (STAX API 1.0) (http://geronimo.apache.org/specs/geronimo-stax-api_1.0_spec) org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:bundle:1.0.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Apache Software Foundation' (http://www.apache.org/)
+  - Woden (http://incubator.apache.org/woden/) org.apache.woden:woden:jar:1.0.0M6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Codehaus' (http://www.codehaus.org/)
+  - Woodstox (http://woodstox.codehaus.org) org.codehaus.woodstox:wstx-asl:jar:3.2.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Spring Framework' (http://www.springframework.org/)
+  - Spring Framework: AOP (http://www.springframework.org) org.springframework:spring-aop:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Beans (http://www.springframework.org) org.springframework:spring-beans:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Context (http://www.springframework.org) org.springframework:spring-context:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Spring Framework: Core (http://www.springframework.org) org.springframework:spring-core:jar:2.5.6
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - XML Security (http://santuario.apache.org/) org.apache.santuario:xmlsec:bundle:1.4.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: Common (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-common) org.apache.servicemix:servicemix-common:jar:2010.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: SOAP (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-soap) org.apache.servicemix:servicemix-soap:jar:2010.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - ServiceMix :: SOAP2 (http://servicemix.apache.org/components-pom/shared-libraries-pom/servicemix-soap2) org.apache.servicemix:servicemix-soap2:jar:2010.01
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache ServiceMix :: Utils (http://servicemix.apache.org/servicemix-utils) org.apache.servicemix:servicemix-utils:bundle:1.2.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache ServiceMix Specs :: JBI API 1.0 (http://servicemix.apache.org/specs/org.apache.servicemix.specs.jbi-api-1.0) org.apache.servicemix.specs:org.apache.servicemix.specs.jbi-api-1.0:bundle:1.4.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - XmlSchema (http://ws.apache.org/commons/XmlSchema) org.apache.ws.commons.schema:XmlSchema:bundle:1.4.5
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - WSS4J (http://ws.apache.org/wss4j/) org.apache.ws.security:wss4j:bundle:1.5.8
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache XBean :: Classloader (http://geronimo.apache.org/xbean/xbean-classloader) org.apache.xbean:xbean-classloader:bundle:3.4.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache XBean :: Spring (http://geronimo.apache.org/xbean/xbean-spring) org.apache.xbean:xbean-spring:bundle:3.4.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+

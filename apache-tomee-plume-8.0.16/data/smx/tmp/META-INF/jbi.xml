@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" version="1.0">
+  <service-assembly>
+    <identification>
+      <name>fundamo-platform-bgJMSConnector-sa</name>
+      <description>Fundamo Enterprise - JMS Connector Service Assembly</description>
+    </identification>
+    <service-unit>
+      <identification>
+        <name>fundamo-platform-bgJMSConnector-su</name>
+        <description>fundamo-platform-bgJMSConnector-su</description>
+      </identification>
+      <target>
+        <artifacts-zip>fundamo-platform-bgJMSConnector-su-5.9.0.zip</artifacts-zip>
+        <component-name>servicemix-jms</component-name>
+      </target>
+    </service-unit>
+  </service-assembly>
+</jbi>
