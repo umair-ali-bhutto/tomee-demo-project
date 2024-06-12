@@ -1,27 +1,54 @@
 package com.ag.test;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.sql.DataSource;
 
 @WebServlet("/")
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public TestServlet() {
-        super();
-    }
+	@Resource(name = "jdbc/OracleDS")
+	private DataSource dataSource;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET HIT @@@@");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public TestServlet() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("@@@@ TEST HIT @@@@");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+
+		try {
+			Connection connection = dataSource.getConnection();
+			PreparedStatement statement = connection.prepareStatement("SELECT * FROM TEST_USERS");
+			ResultSet resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				out.println("<p>" + resultSet.getString("NAME") + "</p>");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(out);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

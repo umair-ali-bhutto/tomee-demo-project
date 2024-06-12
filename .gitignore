@@ -43,5 +43,3 @@ replay_pid*
 # Ignore Linux files
 *~
 
-# Ignore catalina.out
-**/catalina.out
