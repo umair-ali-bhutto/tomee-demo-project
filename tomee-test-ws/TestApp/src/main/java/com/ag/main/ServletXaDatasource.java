@@ -1,4 +1,4 @@
-package com.ag.test;
+package com.ag.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.annotation.Resource;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,23 +17,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-@WebServlet("/")
-public class TestServlet extends HttpServlet {
+/**
+ * Servlet implementation class Servlet
+ */
+@WebServlet("/testxa")
+public class ServletXaDatasource extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	@Resource(name = "jdbc/test")
+	
+	@Resource(name = "jdbc/testXA")
 	private DataSource dataSource;
-
-	public TestServlet() {
-		super();
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("@@@@ TEST HIT @@@@");
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ServletXaDatasource() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+   
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("@@@@ SERVLET 2 HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
 		try {
 			Connection connection = dataSource.getConnection();
 			PreparedStatement statement = connection.prepareStatement("SELECT * FROM TEST_USERS");
@@ -43,11 +52,13 @@ public class TestServlet extends HttpServlet {
 			e.printStackTrace();
 			e.printStackTrace(out);
 		}
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -30,15 +30,27 @@
   
 <!-- UMAIR.ALI -->
 
+  <Resource id="jdbc/XATEST" type="XADataSource" class-name="oracle.jdbc.xa.client.OracleXADataSource">
+    Url jdbc:oracle:thin:@//172.190.1.222:1521/AGUATDB
+  </Resource>
+
 
  <Resource id="jdbc/test" type="DataSource">
-    JdbcDriver  oracle.jdbc.OracleDriver
+    JdbcDriver oracle.jdbc.OracleDriver
     JdbcUrl jdbc:oracle:thin:@//172.190.1.222:1521/AGUATDB
-    UserName payaratest
-    Password PAYARATEST2
+    username payaratest
+    password PAYARATEST2
     JtaManaged true
   </Resource>
 
+ <Resource id="jdbc/testXA" type="DataSource">
+    XaDataSource jdbc/XATEST
+    JdbcDriver oracle.jdbc.OracleDriver
+    JdbcUrl jdbc:oracle:thin:@//172.190.1.222:1521/AGUATDB
+    username payaratest
+    password PAYARATEST2
+    JtaManaged true
+  </Resource>
 
 
 

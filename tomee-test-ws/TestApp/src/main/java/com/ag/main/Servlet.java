@@ -54,10 +54,9 @@ public class Servlet extends HttpServlet {
 			while (resultSet.next()) {
 				out.println("<p>" + resultSet.getString("NAME") + "</p>");
 			}
-		} catch (SQLException e) {
-			e.printStackTrace(out);
 		} catch (Exception e) {
 			e.printStackTrace();
+			e.printStackTrace(out);
 		}
 	}
 
