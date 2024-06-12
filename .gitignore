@@ -22,3 +22,26 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Ignore build directories
+/target/
+/build/
+
+# Ignore Maven local repository
+/.m2/
+
+# Ignore Eclipse files
+/.classpath
+/.project
+/.settings/
+
+# Ignore IntelliJ IDEA files
+/.idea/
+/*.iml
+
+
+# Ignore Linux files
+*~
+
+# Ignore catalina.out
+**/catalina.out
