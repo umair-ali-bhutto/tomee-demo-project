@@ -16,16 +16,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
+ * @author umair.ali
+ * @version 1.0
+ * @since 12-JUN-2024
+ * 
  * Servlet implementation class Servlet
+ * 
+ * Uses Context To Lookup Datasource From Server
+ * 
  */
 @WebServlet("/test")
-public class Servlet extends HttpServlet {
+public class ServletContextLookup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 private DataSource dataSource;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet() {
+    public ServletContextLookup() {
         super();
         // TODO Auto-generated constructor stub
     }

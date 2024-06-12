@@ -15,7 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
+ * @author umair.ali
+ * @version 1.0
+ * @since 12-JUN-2024
+ * 
  * Servlet implementation class Servlet
+ * 
+ * Uses @Resource Annotation To Lookup An XA Datasource
+ * 
  */
 @WebServlet("/testxa")
 public class ServletXaDatasource extends HttpServlet {
