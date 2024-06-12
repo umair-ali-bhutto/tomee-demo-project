@@ -53,6 +53,25 @@
   </Resource>
 
 
+<Resource id="myAdapter" type="ActiveMQResourceAdapter">
+    brokerXmlConfig = broker:(tcp://localhost:61616)?useJmx=false
+    dataSource = Default Unmanaged JDBC Database
+    serverUrl = vm://localhost?waitForStart=20000
+    startupTimeout = 10 seconds
+</Resource>
+
+
+<Resource id="jms/MyTestConnectionFactory" type="javax.jms.QueueConnectionFactory">
+    JmsConnectionFactory jms/MyTestConnectionFactory
+    resourceAdapter = myAdapter
+</Resource>
+
+<Resource id="jms/MyTestQueue" type="javax.jms.Queue">
+    JmsDestination jms/TestQueue
+    resourceAdapter = myAdapter
+</Resource>
+
+
 
 
 

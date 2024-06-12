@@ -5,11 +5,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.annotation.Resource;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +35,7 @@ public class ServletXaDatasource extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET 2 HIT @@@@");
+		System.out.println("@@@@ SERVLET XA DATASOURCE 2 HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
