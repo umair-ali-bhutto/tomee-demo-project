@@ -8,6 +8,9 @@
 
 		<jta-data-source>jdbc/test</jta-data-source>
 		<class>com.ag.entity.AuditLog</class>
+		<class>com.ag.entity.Message</class>
+		
+		
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.Oracle10gDialect" />

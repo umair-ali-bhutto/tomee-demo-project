@@ -8,7 +8,7 @@ import com.ag.entity.AuditLog;
 import com.ag.service.AuditLogService;
 import com.ag.util.TomeeLogger;
 
-@Stateless(name = "AuditLogServiceSender")
+@Stateless
 public class AuditLogServiceImpl implements AuditLogService {
 
 	@PersistenceContext(name = "myPersistenceUnit")

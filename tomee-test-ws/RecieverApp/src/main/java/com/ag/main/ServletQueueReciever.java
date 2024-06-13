@@ -27,13 +27,11 @@ import com.ag.util.TomeeLogger;
  * 
  * 
  *        This servlet listens for HTTP GET requests on the /recieve URL path.
- *        When a request is sent through the /send URL from the servlet
- *        com.ag.main.ServletQueueSender, it recieves the message sent to the
- *        JMS queue specified by the injected Queue resource using the injected
- *        QueueConnectionFactory.
+ *        it recieves the message sent to the JMS queue specified by the
+ *        injected Queue resource using the injected QueueConnectionFactory.
  * 
  */
-@WebServlet("/")
+@WebServlet("/recieve")
 public class ServletQueueReciever extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,7 +40,6 @@ public class ServletQueueReciever extends HttpServlet {
 
 	@Resource(name = "jms/MyTestQueue")
 	private Queue queue;
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

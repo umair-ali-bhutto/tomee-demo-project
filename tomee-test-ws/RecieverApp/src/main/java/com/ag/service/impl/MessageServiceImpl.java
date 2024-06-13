@@ -4,26 +4,24 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.ag.entity.AuditLog;
-import com.ag.service.AuditLogService;
+import com.ag.entity.Message;
+import com.ag.service.MessageService;
 import com.ag.util.TomeeLogger;
 
-@Stateless(name = "AuditLogServiceSender")
-public class AuditLogServiceImpl implements AuditLogService {
+@Stateless
+public class MessageServiceImpl implements MessageService {
 
 	@PersistenceContext(name = "myPersistenceUnit")
 	private EntityManager entityManager;
 
 	@Override
-	public int insertLog(AuditLog log) {
-		int id = 0;
+	public void insert(Message mdl) {
 		try {
-			entityManager.persist(log);
-			id = log.getId();
+			entityManager.persist(mdl);
 		} catch (Exception e) {
 			TomeeLogger.logError(getClass(), e);
 		}
-		return id;
+
 	}
 
 }
