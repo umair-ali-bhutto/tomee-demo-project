@@ -7,7 +7,7 @@
 		transaction-type="JTA">
 
 		<jta-data-source>jdbc/test</jta-data-source>
-		<class>com.ag.entity.TestUsers</class>
+		<class>com.ag.entity.AuditLog</class>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.Oracle10gDialect" />

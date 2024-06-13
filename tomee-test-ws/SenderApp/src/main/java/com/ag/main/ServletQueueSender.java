@@ -2,8 +2,11 @@ package com.ag.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.jms.JMSException;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
@@ -18,12 +21,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ag.entity.AuditLog;
+import com.ag.service.AuditLogService;
+import com.ag.service.impl.AuditLogServiceImpl;
 import com.ag.util.TomeeLogger;
 
 /**
  * @author umair.ali
  * @version 1.0
- * @since 12-JUN-2024
+ * @since 13-JUN-2024
  * 
  * 
  * 
@@ -35,7 +41,7 @@ import com.ag.util.TomeeLogger;
  *        sent successfully." Otherwise, it responds with an error message.
  * 
  */
-@WebServlet("/")
+@WebServlet("/send")
 public class ServletQueueSender extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,10 +52,18 @@ public class ServletQueueSender extends HttpServlet {
 
 	@Resource(name = "jms/MyTestQueue")
 	private Queue queue;
+	
+	@EJB
+	private AuditLogService auditLogService;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		TomeeLogger.logInfo("@@@@ SERVLET CONNECTION FACTORY SEND HIT @@@@");
+		String ipAddress = request.getHeader("IP");
+		if (ipAddress == null) {
+			ipAddress = request.getRemoteAddr();
+		}
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
@@ -67,6 +81,19 @@ public class ServletQueueSender extends HttpServlet {
 		} catch (Exception e) {
 			TomeeLogger.logError(getClass(), e);
 		} finally {
+
+			try {
+				AuditLog log = new AuditLog();
+				log.setEntryDate(new Timestamp(new Date().getTime()));
+				log.setRequestIp(ipAddress);
+				log.setRequestMode("SEND");
+				log.setRequest(request.toString().replaceAll("\\n", ""));
+				log.setResponse(response.toString().replaceAll("\\n", ""));
+				auditLogService.insertLog(log);
+			} catch (Exception e) {
+				TomeeLogger.logError(getClass(), e);
+			}
+
 			out.close();
 		}
 	}
