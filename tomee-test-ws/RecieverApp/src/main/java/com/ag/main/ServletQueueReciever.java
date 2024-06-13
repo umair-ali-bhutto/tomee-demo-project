@@ -22,9 +22,7 @@ import com.ag.util.TomeeLogger;
 /**
  * @author umair.ali
  * @version 1.0
- * @since 12-JUN-2024
- * 
- * 
+ * @since 13-JUN-2024
  * 
  *        This servlet listens for HTTP GET requests on the /recieve URL path.
  *        it recieves the message sent to the JMS queue specified by the
