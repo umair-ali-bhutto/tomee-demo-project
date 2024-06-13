@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.ag.util.TomeeLogger;
+
 /**
  * 
- * JUST A TEST SERVLET
- * Uses @Resource Annotation To Lookup An Datasource
+ * JUST A TEST SERVLET Uses @Resource Annotation To Lookup An Datasource
  * 
  */
 
@@ -34,7 +35,7 @@ public class TestServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("@@@@ TEST HIT @@@@");
+		TomeeLogger.logInfo("@@@@ TEST HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
@@ -46,15 +47,9 @@ public class TestServlet extends HttpServlet {
 				out.println("<p>" + resultSet.getString("NAME") + "</p>");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			e.printStackTrace(out);
+			TomeeLogger.logError(getClass(), e);
 		}
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

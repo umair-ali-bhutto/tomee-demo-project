@@ -14,35 +14,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.ag.util.TomeeLogger;
+
 /**
  * @author umair.ali
  * @version 1.0
  * @since 12-JUN-2024
  * 
- * Servlet implementation class Servlet
+ *        Servlet implementation class Servlet
  * 
- * Uses @Resource Annotation To Lookup An XA Datasource
+ *        Uses @Resource Annotation To Lookup An XA Datasource
  * 
  */
 @WebServlet("/testxa")
 public class ServletXaDatasource extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Resource(name = "jdbc/testXA")
 	private DataSource dataSource;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletXaDatasource() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-   
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET XA DATASOURCE 2 HIT @@@@");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TomeeLogger.logInfo("@@@@ SERVLET XA DATASOURCE 2 HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
@@ -53,17 +46,11 @@ public class ServletXaDatasource extends HttpServlet {
 				out.println("<p>" + resultSet.getString("NAME") + "</p>");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			e.printStackTrace(out);
+			TomeeLogger.logError(getClass(), e);
+			out.println("<b>Something Went Wrong</b><br><p>" + e.getMessage() + "</p>");
+		} finally {
+			out.close();
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

@@ -6,14 +6,14 @@
 	<persistence-unit name="myPersistenceUnit"
 		transaction-type="JTA">
 
-		<jta-data-source>jdbc/testXA</jta-data-source>
+		<jta-data-source>jdbc/test</jta-data-source>
 		<class>com.ag.entity.TestUsers</class>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.show_sql" value="true"></property>
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
+			<!-- <property name="eclipselink.logging.level.sql" value="FINE" /> 
+			<property name="eclipselink.logging.parameters" value="true" /> -->
 		</properties>
 	</persistence-unit>
 </persistence>

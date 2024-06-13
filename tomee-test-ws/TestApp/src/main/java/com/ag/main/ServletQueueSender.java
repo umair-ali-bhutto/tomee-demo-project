@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ag.util.TomeeLogger;
+
 /**
  * @author umair.ali
  * @version 1.0
@@ -37,47 +39,33 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletQueueSender extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private static int id = 0;
+
 	@Resource(name = "jms/MyTestConnectionFactory")
 	private QueueConnectionFactory connectionFactory;
 
 	@Resource(name = "jms/MyTestQueue")
 	private Queue queue;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ServletQueueSender() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET CONNECTION FACTORY HIT @@@@");
+		TomeeLogger.logInfo("@@@@ SERVLET CONNECTION FACTORY SEND HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
 		try {
-			// Create JMS connection, session, and message sender
-			try {
+			QueueConnection connection = connectionFactory.createQueueConnection();
+			QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
+			QueueSender sender = session.createSender(queue);
 
-				QueueConnection connection = connectionFactory.createQueueConnection();
-				QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
-				QueueSender sender = session.createSender(queue);
-				// Create a text message
-				TextMessage message = session.createTextMessage("Hello, JMS!");
-
-				// Send the message
-				sender.send(message);
-
-				out.println("Message sent successfully.");
-			} catch (JMSException e) {
-				out.println("Failed to send message: " + e.getMessage());
-			}
+			TextMessage message = session.createTextMessage("Hello, JMS: " + id);
+			sender.send(message);
+			TomeeLogger.logInfo("Message Number:" + id + " sent successfully.");
+			id++;
+			out.println("Message sent successfully.");
+		} catch (JMSException e) {
+			out.println("Failed to send message: " + e.getMessage());
+		} catch (Exception e) {
+			TomeeLogger.logError(getClass(), e);
 		} finally {
 			out.close();
 		}

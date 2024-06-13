@@ -2,13 +2,9 @@ package com.ag.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -17,9 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 import com.ag.entity.TestUsers;
+import com.ag.util.TomeeLogger;
 
 /**
  * @author umair.ali
@@ -42,13 +38,14 @@ public class ServletNamedQuery extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET NAMED QUERY HIT @@@@");
+		TomeeLogger.logInfo("@@@@ SERVLET NAMED QUERY HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
 
 			List<TestUsers> usersList = new ArrayList<TestUsers>();
 			Query q = entityManager.createNamedQuery("TestUsers.findAll", TestUsers.class);
+
 			usersList = (List<TestUsers>) q.getResultList();
 
 			if (usersList.size() != 0) {
@@ -65,7 +62,16 @@ public class ServletNamedQuery extends HttpServlet {
 				out.println("<br><br><ol>");
 
 				for (TestUsers user : usersList) {
-					out.println("<li>" + user.getName() + "</li>");
+
+					if (user.getId() == 1) {
+						Query q1 = entityManager.createNamedQuery("TestUsers.findById", TestUsers.class)
+								.setParameter("id", user.getId());
+
+						TestUsers singleUser = (TestUsers) q1.getSingleResult();
+
+						out.println("<li>" + singleUser.getName() + "</li>");
+
+					}
 				}
 				out.println("</ol>");
 			} else {
@@ -73,8 +79,10 @@ public class ServletNamedQuery extends HttpServlet {
 			}
 
 		} catch (Exception e) {
-			out.println("<p>Something Went Wrong <br> " + e.getMessage() + " </p>");
-			e.printStackTrace();
+			TomeeLogger.logError(getClass(), e);
+			out.println("<b>Something Went Wrong</b><br><p>" + e.getMessage() + "</p>");
+		}finally {
+			out.close();
 		}
 	}
 

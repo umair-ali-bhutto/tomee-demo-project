@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import com.ag.entity.TestUsers;
+import com.ag.util.TomeeLogger;
 
 /**
  * @author umair.ali
@@ -38,7 +39,7 @@ public class ServletDatasource extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET DATASOURCE 1 HIT @@@@");
+		TomeeLogger.logInfo("@@@@ SERVLET DATASOURCE 1 HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
@@ -76,8 +77,10 @@ public class ServletDatasource extends HttpServlet {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			e.printStackTrace(out);
+			TomeeLogger.logError(getClass(), e);
+			out.println("<b>Something Went Wrong</b><br><p>" + e.getMessage() + "</p>");
+		}finally {
+			out.close();
 		}
 	}
 

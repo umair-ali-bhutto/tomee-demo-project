@@ -1,7 +1,6 @@
 package com.ag.main;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.annotation.Resource;
 import javax.jms.Connection;
@@ -17,6 +16,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ag.util.TomeeLogger;
 
 /**
  * @author umair.ali
@@ -42,21 +43,10 @@ public class ServletQueueReciever extends HttpServlet {
 	@Resource(name = "jms/MyTestQueue")
 	private Queue queue;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ServletQueueReciever() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET RECIEVE HIT @@@@");
+		System.out.println("@@@@ SERVLET CONNECTION FACTORY RECIEVER HIT @@@@");
 
 		Connection connection = null;
 		try {
@@ -65,22 +55,22 @@ public class ServletQueueReciever extends HttpServlet {
 			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			MessageConsumer consumer = session.createConsumer(queue);
 
-			System.out.println("Waiting for messages...");
+			TomeeLogger.logInfo("Waiting for messages...");
 
 			while (true) {
 				Message message = consumer.receive();
 				if (message instanceof TextMessage) {
 					TextMessage textMessage = (TextMessage) message;
 					response.getWriter().append("Received message: " + textMessage.getText());
-					System.out.println("Received message: " + textMessage.getText());
+					TomeeLogger.logInfo("Received message: " + textMessage.getText());
 				} else {
 					response.getWriter().append("Received message: " + message);
-					System.out.println("Received message: " + message);
+					TomeeLogger.logInfo("Received message: " + message);
 				}
-				Thread.sleep(1000);
+				Thread.sleep(5000);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			TomeeLogger.logError(getClass(), e);
 		} finally {
 			if (connection != null) {
 				try {
@@ -89,7 +79,6 @@ public class ServletQueueReciever extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-
 		}
 	}
 

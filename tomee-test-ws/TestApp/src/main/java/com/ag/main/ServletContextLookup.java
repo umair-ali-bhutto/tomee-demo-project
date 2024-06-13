@@ -15,42 +15,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.ag.util.TomeeLogger;
+
 /**
  * @author umair.ali
  * @version 1.0
  * @since 12-JUN-2024
  * 
- * Servlet implementation class Servlet
+ *        Servlet implementation class Servlet
  * 
- * Uses Context To Lookup Datasource From Server
+ *        Uses Context To Lookup Datasource From Server
  * 
  */
 @WebServlet("/test")
 public class ServletContextLookup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	 private DataSource dataSource;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletContextLookup() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    @Override
-    public void init() throws ServletException {
-        try {
-            InitialContext ctx = new InitialContext();
-            dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/test");
-        } catch (NamingException e) {
-            throw new ServletException("Unable to lookup DataSource", e);
-        }
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("@@@@ SERVLET HIT @@@@");
+	private DataSource dataSource;
+
+	@Override
+	public void init() throws ServletException {
+		try {
+			InitialContext ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/test");
+		} catch (NamingException e) {
+			throw new ServletException("Unable to lookup DataSource", e);
+		} catch (Exception e) {
+			TomeeLogger.logError(getClass(), e);
+		}
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TomeeLogger.logInfo("@@@@ SERVLET CONTEXT LOOKUP HIT @@@@");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
@@ -61,17 +58,11 @@ public class ServletContextLookup extends HttpServlet {
 				out.println("<p>" + resultSet.getString("NAME") + "</p>");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			e.printStackTrace(out);
+			TomeeLogger.logError(getClass(), e);
+			out.println("<b>Something Went Wrong</b><br><p>" + e.getMessage() + "</p>");
+		} finally {
+			out.close();
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
