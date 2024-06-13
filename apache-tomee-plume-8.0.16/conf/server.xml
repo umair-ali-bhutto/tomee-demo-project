@@ -166,7 +166,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      </Host>
+      <Context docBase="/mnt/8EFED7B1FED79037/UBUNTU-BACKUP/VS-GIT/tomee-demo-project/apache-tomee-plume-8.0.16/webapps/TestApp" path="/TestApp" reloadable="true" source="org.eclipse.jst.jee.server:TestApp"/></Host>
     </Engine>
   </Service>
 </Server>
